@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body></body>
+  <script type="text/javascript" src="http://libs.baidu.com/jquery/1.7.2/jquery.min.js"></script>
+  <script type="text/javascript">
+    // 数组的深浅拷贝
+    var a = [11,22,33]
+    var b = a
+    b[0] = 44
+    console.log(a) //[44,22,33]
+    console.log(b) //[44,22,33]
+    // 想让两个数组不随着一个数组的值改变而改变呢
+    //1 slice() 方法
+    var c = a.slice(0)
+    c[0] = 55
+    console.log(a) //[44,22,33]
+    console.log(c) //[55,22,33]
+    //2 concat() 方法
+    var e = a.concat()
+    e[0] = 66
+    console.log(a) //[44,22,33]
+    console.log(e) //[66,22,33]
+    
+    // 对象的深浅拷贝
+    // 浅拷贝 es6的Object.assign()
+    const obj1 = {
+      a:{
+        b:1
+      }
+    }
+    const obj2 = Object.assign({},obj1)
+    obj1.a.b = 2
+    console.log(obj1) //2
+    console.log(obj2) //2
+    // 深拷贝
+    //1 JSON.parse(JSON.stringify())
+    const obj3 = JSON.parse(JSON.stringify(obj1))
+    obj1.a.b = 3
+    console.log(obj1) //b:3
+    console.log(obj3) //b:2
+    //2 jquery的$.extend()方法
+    const obj4 = $.extend(true,{},obj1)
+    obj1.a.b = 10
+    console.log(obj1) //b:10
+    console.log(obj4) //b:3
+  </script>
+</html>

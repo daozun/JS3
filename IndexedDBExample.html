@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    
+  </body>
+  <script type="text/javascript">
+    var log = console.log.bind(console)
+    var request,database;
+    request = indexedDB.open("admin");
+    request.onerror = function (event) {
+      alert(event.target.errorCode);
+    };
+    request.onsuccess = function (event) {
+      database = event.target.result;
+      log(database)
+    };
+  </script>
+</html>

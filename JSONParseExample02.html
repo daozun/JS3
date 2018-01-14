@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var book = {
+        "title": "Professional Javascript",
+        "authors": [
+          "jack"
+        ],
+        edition:3,
+        year:2011,
+        releaseDate: new Date(2011,11,1)
+      };
+      var jsonText = JSON.stringify(book);
+      var bookcopy = JSON.parse(jsonText,function(key,value) {
+        if(key == "releaseDate") {
+          return new Date(value);
+        } else {
+          return value;
+        }
+      });
+      console.log(bookcopy);
+      console.log(bookcopy.releaseDate.getFullYear());
+    </script>
+  </body>
+</html>
