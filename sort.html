@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body></body>
+  <script type="text/javascript">
+   // sort对数组的元素进行排序，并返回数组，默认排序顺序是根据字符串Unicode码点
+   
+   // 升序
+    let arr1 = [1,5,2,3,9,6,8]
+    let newArray1  = arr1.sort((a,b) =>  a - b)
+    console.log(newArray1)
+    
+    //降序
+    let newArray2 =arr1.sort((a,b) => b - a)
+    console.log(newArray2)  
+    
+    //json
+    let arr2 = [
+      { name: 'Edward', value: 21 },
+      { name: 'Sharpe', value: 37 },
+      { name: 'And', value: 45 },
+      { name: 'The', value: -12 },
+      { name: 'Magnetic' },
+      { name: 'Zeros', value: 37 }
+    ]
+    let newArray3 = arr2.sort(function(a, b) {
+    var nameA = a.name.toUpperCase(); // ignore upper and lowercase
+    var nameB = b.name.toUpperCase(); // ignore upper and lowercase
+    if (nameA < nameB) {
+      return -1;
+    }
+    if (nameA > nameB) {
+      return 1;
+    }
+    return 0;
+    });    
+    console.log(newArray3)    
+  </script>
+</html>
